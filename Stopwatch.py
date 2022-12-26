@@ -31,7 +31,10 @@ while True:
     if event == '-STARTSTOP-':
         if active:
             # active --> stop
-            pass
+            active = False
+            window['-STARTSTOP-'].update('Reset')
+            window['-LAP-'].update(visible = False)
+
         else:
             # start --> active                
             start_time = time()

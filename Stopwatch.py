@@ -11,6 +11,7 @@ def create_window():
             sg.Button('Start', button_color = ('#FFFFFF', '#FF0000'), border_width=0, key='-STARTSTOP-'), 
             sg.Button('Lap', button_color = ('#FFFFFF', '#FF0000'), border_width=0, key='-LAP-', visible = False)
         ],
+        [sg.Column([[]], key = '-LAPS-')],
         [sg.VPush()]
 
     ]
@@ -52,5 +53,8 @@ while True:
     if active:
         elapsed_time = round(time() - start_time,1)
         window['-TIME-'].update(elapsed_time)
+    
+    if event == '-LAP-':
+        window.extend_layout(window['-LAPS-'], [[sg.Text('time')]])
 
 window.close()

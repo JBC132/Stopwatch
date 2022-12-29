@@ -25,6 +25,7 @@ def create_window():
 window = create_window()
 start_time = 0
 active = False
+lap_amount = 1
 
 while True:
     event, values = window.read(timeout = 10)
@@ -55,6 +56,7 @@ while True:
         window['-TIME-'].update(elapsed_time)
     
     if event == '-LAP-':
-        window.extend_layout(window['-LAPS-'], [[sg.Text('time')]])
+        window.extend_layout(window['-LAPS-'], [[sg.Text(lap_amount), sg.VSeparator(), sg.Text(elapsed_time)]])
+        lap_amount += 1
 
 window.close()

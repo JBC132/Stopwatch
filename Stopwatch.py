@@ -44,6 +44,7 @@ while True:
                 window.close()
                 window = create_window()
                 start_time = 0
+                lap_amount = 1
             # start --> active
             else:                                    
                 start_time = time()
